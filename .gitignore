@@ -1,0 +1,32 @@
+# Ignore Visual Studio temporary files, build results, etc.
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Tt]emp/
+
+# Debug/Release
+*.pdb
+*.obj
+*.exe
+*.dll
+*.cache
+*.log
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Others
+_ReSharper*/
+*.resharper
+*.DotSettings
+*.vsidx

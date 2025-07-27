@@ -11,7 +11,7 @@ namespace lscorporation.Pages.Forms.Complex
 {
 
 
-    public partial class TopPerformer
+    public partial class TopPerformers
     {
 
         /// <summary>

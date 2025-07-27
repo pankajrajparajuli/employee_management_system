@@ -154,9 +154,9 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Dashbord\dashboard.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\Dashboard\Dashboard.aspx" />
     <Content Include="Pages\Forms\Basic\MilestoneForm.aspx" />
     <Content Include="Pages\Forms\Basic\ProjectForm.aspx" />
     <Content Include="Pages\Forms\Basic\UserForm.aspx" />
@@ -235,15 +235,15 @@
     <Compile Include="AppCode\DBHelper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Dashbord\dashboard.aspx.cs">
-      <DependentUpon>dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dashbord\dashboard.aspx.designer.cs">
-      <DependentUpon>dashboard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Forms\Basic\MilestoneForm.aspx.cs">
       <DependentUpon>MilestoneForm.aspx</DependentUpon>

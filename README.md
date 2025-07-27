@@ -106,4 +106,4 @@ Includes the following core entities and relationships:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/ls-corporation-project-management.git
+   git clone https://github.com/pankajrajparajuli/employee_management_system

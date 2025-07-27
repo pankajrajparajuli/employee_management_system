@@ -13,8 +13,6 @@ A fully functional web-based project management system developed as part of the 
 - [📁 Project Structure](#📁-project-structure)
 - [🗃️ Database Schema](#️-database-schema)
 - [⚙️ Setup Instructions](#️-setup-instructions)
-- [📸 Screenshots](#📸-screenshots)
-- [👨‍💻 Contributors](#👨‍💻-contributors)
 
 ---
 

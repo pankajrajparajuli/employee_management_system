@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserProject.aspx.cs" Inherits="lscorporation.Pages.Forms.Complex.UserProject" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserProjects.aspx.cs" Inherits="lscorporation.Pages.Forms.Complex.UserProjects" %>
+
 
 <!DOCTYPE html>
 
@@ -53,7 +54,7 @@
             SelectCommand="
                 SELECT P.PROJECT_ID, P.PROJECT_NAME, P.PROJECT_START_DATE, P.PROJECT_DUE_DATE, P.PROJECT_STATUS
                 FROM PROJECTS P
-                INNER JOIN USERPROJECT U ON P.PROJECT_ID = U.PROJECT_ID
+                INNER JOIN USERPROJECTS U ON P.PROJECT_ID = U.PROJECT_ID
                 WHERE U.USER_ID = :USER_ID">
             <SelectParameters>
                 <asp:ControlParameter Name="USER_ID" ControlID="ddlUsers" PropertyName="SelectedValue" />

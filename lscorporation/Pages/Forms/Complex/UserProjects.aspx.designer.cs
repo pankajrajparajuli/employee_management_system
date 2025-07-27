@@ -11,7 +11,7 @@ namespace lscorporation.Pages.Forms.Complex
 {
 
 
-    public partial class UserProject
+    public partial class UserProjects
     {
 
         /// <summary>

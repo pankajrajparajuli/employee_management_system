@@ -59,7 +59,7 @@
                 FROM MILESTONES M
                 WHERE M.PROJECT_ID = :PROJECT_ID">
             <SelectParameters>
-                <asp:ControlParameter Name="PROJECT_ID" ControlID="ddlProjects" PropertyName="SelectedValue" />
+                <asp:ControlParameter Name="PROJECT_ID" ControlID="ddlProjects" ParopertyName="SelectedValue" />
             </SelectParameters>
         </asp:SqlDataSource>
 

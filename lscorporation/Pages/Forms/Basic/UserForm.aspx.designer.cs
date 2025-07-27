@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace lscorporation
+namespace lscorporation.Pages.Forms.Basic
 {
 
 
@@ -24,30 +24,30 @@ namespace lscorporation
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// UserDataSource control.
+        /// FormView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource UserDataSource;
+        protected global::System.Web.UI.WebControls.FormView FormView1;
 
         /// <summary>
-        /// UserGridView control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView UserGridView;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// UserDetailsView control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView UserDetailsView;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

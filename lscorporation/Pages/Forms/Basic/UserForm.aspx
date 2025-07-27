@@ -1,67 +1,94 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserForm.aspx.cs" Inherits="lscorporation.UserForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserForm.aspx.cs" Inherits="lscorporation.Pages.Forms.Basic.UserForm" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>User Management</title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <h2>User Management</h2>
+        <div style="padding:20px">
+            <h2>User Management</h2>
 
-        <asp:SqlDataSource ID="UserDataSource" runat="server"
-            ConnectionString="<%$ ConnectionStrings:OracleDbContext %>"
-            SelectCommand="SELECT * FROM USERS"
-            InsertCommand="INSERT INTO USERS (User_ID, User_First_Name, User_Last_Name, Email, Contact, Role) VALUES (:User_ID, :User_First_Name, :User_Last_Name, :Email, :Contact, :Role)"
-            UpdateCommand="UPDATE USERS SET User_First_Name = :User_First_Name, User_Last_Name = :User_Last_Name, Email = :Email, Contact = :Contact, Role = :Role WHERE User_ID = :User_ID"
-            DeleteCommand="DELETE FROM USERS WHERE User_ID = :User_ID">
-            <InsertParameters>
-                <asp:Parameter Name="User_ID" Type="String" />
-                <asp:Parameter Name="User_First_Name" Type="String" />
-                <asp:Parameter Name="User_Last_Name" Type="String" />
-                <asp:Parameter Name="Email" Type="String" />
-                <asp:Parameter Name="Contact" Type="String" />
-                <asp:Parameter Name="Role" Type="String" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="User_First_Name" Type="String" />
-                <asp:Parameter Name="User_Last_Name" Type="String" />
-                <asp:Parameter Name="Email" Type="String" />
-                <asp:Parameter Name="Contact" Type="String" />
-                <asp:Parameter Name="Role" Type="String" />
-                <asp:Parameter Name="User_ID" Type="String" />
-            </UpdateParameters>
-            <DeleteParameters>
-                <asp:Parameter Name="User_ID" Type="String" />
-            </DeleteParameters>
-        </asp:SqlDataSource>
+            <!-- FormView for INSERT -->
+            <asp:FormView ID="FormView1" runat="server"
+                DataSourceID="SqlDataSource1"
+                DefaultMode="Insert"
+                RenderOuterTable="false" OnPageIndexChanging="FormView1_PageIndexChanging">
+                <InsertItemTemplate>
+                    <table>
+                        <tr><td>User ID:</td><td><asp:TextBox ID="txtUserId" runat="server" Text='<%# Bind("USER_ID") %>' /></td></tr>
+                        <tr><td>First Name:</td><td><asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("USER_FIRST_NAME") %>' /></td></tr>
+                        <tr><td>Last Name:</td><td><asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("USER_LAST_NAME") %>' /></td></tr>
+                        <tr><td>Email:</td><td><asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("EMAIL") %>' /></td></tr>
+                        <tr><td>Contact:</td><td><asp:TextBox ID="txtContact" runat="server" Text='<%# Bind("CONTACT") %>' /></td></tr>
+                        <tr><td>Role:</td><td><asp:TextBox ID="txtRole" runat="server" Text='<%# Bind("ROLE") %>' /></td></tr>
+                        <tr>
+                            <td colspan="2">
+                                <asp:Button ID="btnInsert" runat="server" CommandName="Insert" Text="Insert" />
+                                <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" />
+                            </td>
+                        </tr>
+                    </table>
+                </InsertItemTemplate>
+            </asp:FormView>
 
-        <asp:GridView ID="UserGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="User_ID"
-            DataSourceID="UserDataSource" AllowPaging="True" AllowSorting="True">
-            <Columns>
-                <asp:BoundField DataField="User_ID" HeaderText="User ID" ReadOnly="True" SortExpression="User_ID" />
-                <asp:BoundField DataField="User_First_Name" HeaderText="First Name" SortExpression="User_First_Name" />
-                <asp:BoundField DataField="User_Last_Name" HeaderText="Last Name" SortExpression="User_Last_Name" />
-                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                <asp:BoundField DataField="Contact" HeaderText="Contact" SortExpression="Contact" />
-                <asp:BoundField DataField="Role" HeaderText="Role" SortExpression="Role" />
-                <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />
-            </Columns>
-        </asp:GridView>
+            <hr />
 
-        <h3>Add New User</h3>
-        <asp:DetailsView ID="UserDetailsView" runat="server" AutoGenerateRows="False"
-            DataSourceID="UserDataSource" DefaultMode="Insert">
-            <Fields>
-                <asp:BoundField DataField="User_ID" HeaderText="User ID" />
-                <asp:BoundField DataField="User_First_Name" HeaderText="First Name" />
-                <asp:BoundField DataField="User_Last_Name" HeaderText="Last Name" />
-                <asp:BoundField DataField="Email" HeaderText="Email" />
-                <asp:BoundField DataField="Contact" HeaderText="Contact" />
-                <asp:BoundField DataField="Role" HeaderText="Role" />
-                <asp:CommandField ShowInsertButton="True" />
-            </Fields>
-        </asp:DetailsView>
+            <!-- GridView for Read/Update/Delete -->
+            <asp:GridView ID="GridView1" runat="server"
+                AutoGenerateColumns="False"
+                DataKeyNames="USER_ID"
+                DataSourceID="SqlDataSource1"
+                AllowPaging="True"
+                AllowSorting="True"
+                AutoGenerateEditButton="True"
+                AutoGenerateDeleteButton="True"
+                Width="100%">
+                <Columns>
+                    <asp:BoundField DataField="USER_ID" HeaderText="USER_ID" ReadOnly="True" SortExpression="USER_ID" />
+                    <asp:BoundField DataField="USER_FIRST_NAME" HeaderText="First Name" SortExpression="USER_FIRST_NAME" />
+                    <asp:BoundField DataField="USER_LAST_NAME" HeaderText="Last Name" SortExpression="USER_LAST_NAME" />
+                    <asp:BoundField DataField="EMAIL" HeaderText="Email" SortExpression="EMAIL" />
+                    <asp:BoundField DataField="CONTACT" HeaderText="Contact" SortExpression="CONTACT" />
+                    <asp:BoundField DataField="ROLE" HeaderText="Role" SortExpression="ROLE" />
+                </Columns>
+            </asp:GridView>
+
+            <!-- SqlDataSource with CRUD -->
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+                ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                ProviderName="System.Data.OracleClient"
+                SelectCommand="SELECT * FROM USERS ORDER BY USER_ID"
+                InsertCommand="INSERT INTO USERS (USER_ID, USER_FIRST_NAME, USER_LAST_NAME, EMAIL, CONTACT, ROLE) VALUES (:USER_ID, :USER_FIRST_NAME, :USER_LAST_NAME, :EMAIL, :CONTACT, :ROLE)"
+                UpdateCommand="UPDATE USERS SET USER_FIRST_NAME=:USER_FIRST_NAME, USER_LAST_NAME=:USER_LAST_NAME, EMAIL=:EMAIL, CONTACT=:CONTACT, ROLE=:ROLE WHERE USER_ID=:USER_ID"
+                DeleteCommand="DELETE FROM USERS WHERE USER_ID=:USER_ID">
+
+                <InsertParameters>
+                    <asp:Parameter Name="USER_ID" Type="String" />
+                    <asp:Parameter Name="USER_FIRST_NAME" Type="String" />
+                    <asp:Parameter Name="USER_LAST_NAME" Type="String" />
+                    <asp:Parameter Name="EMAIL" Type="String" />
+                    <asp:Parameter Name="CONTACT" Type="String" />
+                    <asp:Parameter Name="ROLE" Type="String" />
+                </InsertParameters>
+
+                <UpdateParameters>
+                    <asp:Parameter Name="USER_FIRST_NAME" Type="String" />
+                    <asp:Parameter Name="USER_LAST_NAME" Type="String" />
+                    <asp:Parameter Name="EMAIL" Type="String" />
+                    <asp:Parameter Name="CONTACT" Type="String" />
+                    <asp:Parameter Name="ROLE" Type="String" />
+                    <asp:Parameter Name="USER_ID" Type="String" />
+                </UpdateParameters>
+
+                <DeleteParameters>
+                    <asp:Parameter Name="USER_ID" Type="String" />
+                </DeleteParameters>
+            </asp:SqlDataSource>
+
+        </div>
     </form>
 </body>
 </html>

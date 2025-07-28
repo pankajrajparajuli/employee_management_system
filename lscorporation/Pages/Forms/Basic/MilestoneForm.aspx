@@ -23,10 +23,6 @@
             margin-bottom: 20px;
         }
 
-        .table td {
-            padding: 8px;
-        }
-
         .navbar-brand, .nav-link, .dropdown-item {
             color: #ffffff !important;
         }
@@ -57,13 +53,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../Dashboard/Dashboard.aspx">Dashboard</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="../../Dashboard/Dashboard.aspx">Dashboard</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Basic Forms
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Basic Forms</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="UserForm.aspx">User</a></li>
                                 <li><a class="dropdown-item" href="ProjectForm.aspx">Project</a></li>
@@ -73,9 +65,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Complex Forms
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Complex Forms</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../Complex/UserProjects.aspx">User Projects</a></li>
                                 <li><a class="dropdown-item" href="../Complex/ProjectMilestones.aspx">Project Milestones</a></li>
@@ -102,7 +92,12 @@
                             <tr><td>Milestone ID:</td><td><asp:TextBox ID="txtMilestoneId" runat="server" CssClass="form-control" Text='<%# Bind("MILESTONE_ID") %>' /></td></tr>
                             <tr><td>Project ID:</td><td><asp:TextBox ID="txtProjectId" runat="server" CssClass="form-control" Text='<%# Bind("PROJECT_ID") %>' /></td></tr>
                             <tr><td>Name:</td><td><asp:TextBox ID="txtMilestoneName" runat="server" CssClass="form-control" Text='<%# Bind("MILESTONE_NAME") %>' /></td></tr>
-                            <tr><td>Due Date:</td><td><asp:TextBox ID="txtDueDate" runat="server" CssClass="form-control" Text='<%# Bind("MILESTONE_DUE_DATE") %>' /></td></tr>
+                            <tr>
+                                <td>Due Date:</td>
+                                <td>
+                                    <asp:TextBox ID="txtDueDate" runat="server" CssClass="form-control" TextMode="Date" Text='<%# Bind("MILESTONE_DUE_DATE") %>' />
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="2">
                                     <asp:Button runat="server" CommandName="Insert" Text="Insert" CssClass="btn btn-success" />
@@ -149,19 +144,10 @@
                 <asp:Parameter Name="MILESTONE_NAME" Type="String" />
                 <asp:Parameter Name="MILESTONE_DUE_DATE" Type="DateTime" />
             </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="PROJECT_ID" Type="String" />
-                <asp:Parameter Name="MILESTONE_NAME" Type="String" />
-                <asp:Parameter Name="MILESTONE_DUE_DATE" Type="DateTime" />
-                <asp:Parameter Name="MILESTONE_ID" Type="String" />
-            </UpdateParameters>
-            <DeleteParameters>
-                <asp:Parameter Name="MILESTONE_ID" Type="String" />
-            </DeleteParameters>
         </asp:SqlDataSource>
     </form>
 
-    <!-- Bootstrap Bundle -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

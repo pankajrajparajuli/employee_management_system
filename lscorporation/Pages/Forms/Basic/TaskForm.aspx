@@ -90,8 +90,12 @@
                         <table class="table table-borderless">
                             <tr><td>Task ID:</td><td><asp:TextBox ID="txtTaskId" runat="server" CssClass="form-control" Text='<%# Bind("TASK_ID") %>' /></td></tr>
                             <tr><td>Task Name:</td><td><asp:TextBox ID="txtTaskName" runat="server" CssClass="form-control" Text='<%# Bind("TASK_NAME") %>' /></td></tr>
-                            <tr><td>Start Date:</td><td><asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control" Text='<%# Bind("TASK_START_DATE") %>' /></td></tr>
-                            <tr><td>Due Date:</td><td><asp:TextBox ID="txtDueDate" runat="server" CssClass="form-control" Text='<%# Bind("TASK_DUE_DATE") %>' /></td></tr>
+                            <tr><td>Start Date:</td>
+                                <td><asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control" TextMode="Date" Text='<%# Bind("TASK_START_DATE") %>' /></td>
+                            </tr>
+                            <tr><td>Due Date:</td>
+                                <td><asp:TextBox ID="txtDueDate" runat="server" CssClass="form-control" TextMode="Date" Text='<%# Bind("TASK_DUE_DATE") %>' /></td>
+                            </tr>
                             <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" CssClass="form-control" Text='<%# Bind("TASK_STATUS") %>' /></td></tr>
                             <tr>
                                 <td colspan="2">

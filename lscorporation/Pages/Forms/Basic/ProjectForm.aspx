@@ -23,10 +23,6 @@
             margin-bottom: 20px;
         }
 
-        .table td {
-            padding: 8px;
-        }
-
         .navbar-brand, .nav-link, .dropdown-item {
             color: #ffffff !important;
         }
@@ -47,7 +43,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
@@ -57,13 +52,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../Dashboard/Dashboard.aspx">Dashboard</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="../../Dashboard/Dashboard.aspx">Dashboard</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Basic Forms
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Basic Forms</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="UserForm.aspx">User</a></li>
                                 <li><a class="dropdown-item" href="ProjectForm.aspx">Project</a></li>
@@ -73,9 +64,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                Complex Forms
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Complex Forms</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../Complex/UserProjects.aspx">User Projects</a></li>
                                 <li><a class="dropdown-item" href="../Complex/ProjectMilestones.aspx">Project Milestones</a></li>
@@ -101,8 +90,12 @@
                         <table class="table table-borderless">
                             <tr><td>Project ID:</td><td><asp:TextBox ID="txtProjectId" runat="server" CssClass="form-control" Text='<%# Bind("PROJECT_ID") %>' /></td></tr>
                             <tr><td>Name:</td><td><asp:TextBox ID="txtProjectName" runat="server" CssClass="form-control" Text='<%# Bind("PROJECT_NAME") %>' /></td></tr>
-                            <tr><td>Start Date:</td><td><asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control" Text='<%# Bind("PROJECT_START_DATE") %>' /></td></tr>
-                            <tr><td>Due Date:</td><td><asp:TextBox ID="txtDueDate" runat="server" CssClass="form-control" Text='<%# Bind("PROJECT_DUE_DATE") %>' /></td></tr>
+                            <tr><td>Start Date:</td>
+                                <td><asp:TextBox ID="txtStartDate" runat="server" CssClass="form-control" TextMode="Date" Text='<%# Bind("PROJECT_START_DATE") %>' /></td>
+                            </tr>
+                            <tr><td>Due Date:</td>
+                                <td><asp:TextBox ID="txtDueDate" runat="server" CssClass="form-control" TextMode="Date" Text='<%# Bind("PROJECT_DUE_DATE") %>' /></td>
+                            </tr>
                             <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" CssClass="form-control" Text='<%# Bind("PROJECT_STATUS") %>' /></td></tr>
                             <tr>
                                 <td colspan="2">

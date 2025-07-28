@@ -68,8 +68,6 @@
                                 <li><a class="dropdown-item" href="../Complex/UserProjects.aspx">User Projects</a></li>
                                 <li><a class="dropdown-item" href="../Complex/ProjectMilestones.aspx">Project Milestones</a></li>
                                 <li><a class="dropdown-item" href="../Complex/TopPerformers.aspx">Top Performers</a></li>
-                                <li><a class="dropdown-item" href="../Complex/TaskManagement.aspx">Task Management</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
